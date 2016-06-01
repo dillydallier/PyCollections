@@ -8,6 +8,9 @@ CELLS = [
 
 
 def get_locations():
+    """generate random positions for the monster, the door, and the player
+    If any two out of three originate in the same position, redo it.
+    """
     monster = random.choice(CELLS)
     door = random.choice(CELLS)
     player = random.choice(CELLS)
@@ -19,6 +22,9 @@ def get_locations():
 
 
 def move_player(player, move):
+    """moves the player to a position designated by the user.
+    saves the previous positions of the player to a list.
+    """
     PREV_MOVES = []  # to save the previous positions of player
     # get the player's current location
     x, y = player["now"]
@@ -38,6 +44,12 @@ def move_player(player, move):
 
 
 def get_moves(player):
+    """generates possible moves for the player.
+    If the player is at the left edge, eliminates LEFT from possible moves.
+    If the player is at the right edge, eliminates RIGHT from possible moves.
+    If the player is at the top row, eliminates UP from possible moves.
+    If the player is at the bottom row, eliminates DOWN from possible moves.
+    """
     moves = ["LEFT", "RIGHT", "UP", "DOWN"]
     # player = (x,y)
     if player["now"][1] == 0:
@@ -53,6 +65,11 @@ def get_moves(player):
 
 
 def draw_map():
+    """creates a 4$*4 map
+    designates - and | as walls
+    designates _ as available positions
+    designates . as previous positions the player was in
+    """
     print(" _ _ _ _")
     tile = "|{}"
 
