@@ -1,6 +1,6 @@
-state_names = ["alabama","california","oklahoma","florida"]
-vowels = ["a","e","i","o","u"]
-output = [ ]
+state_names = ["alabama", "california", "oklahoma", "florida"]
+vowels = ["a", "e", "i", "o", "u"]
+output = []
 
 for state in state_names:
     state_list = list(state.lower())
